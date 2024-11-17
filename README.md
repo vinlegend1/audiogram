@@ -10,21 +10,59 @@ This template is for creating "audiograms". In other words, video clips from pod
 
 Start changing things like this:
 
-- Adjust size and length in `src/Video.tsx`
-- Replacing audio, cover and subtitles in the `src/assets` folder
+- Adjust length of video in `src/Root.tsx`
+- Replacing audio, cover and subtitles in the `public/` folder
 - Tweak `src/Composition.tsx`
+- **Make sure to add audio, cover, and subtitles** files in the `public/` folder
+- `cover.png` should be a 300x300px image
 
-## How do I render my video?
+## Commands
 
-Run this:
+**Install Dependencies**
 
 ```console
-npx remotion render
+yarn
 ```
 
-Or check out the [Remotion docs](/docs/render/). There are lots of ways to render.
+**Start Preview**
 
-## Where to get a transcript (SRT file)?
+```console
+yarn dev
+```
+
+**Render video**
+
+```console
+yarn remotion render
+```
+
+**Upgrade Remotion**
+
+```console
+yarn remotion upgrade
+```
+
+**Transcript file generation**
+First create a python venv
+```console
+sudo apt install python3-venv
+python3 -m venv <path to venv>
+```
+Install the python dependencies
+```console
+pip3 install -r requirements.txt
+```
+Run the python script that does a word-level transcription using OpenAI's Whisper model
+
+```console
+python3 whispter-srt.py
+```
+
+## Docs
+
+Get started with Remotion by reading the [fundamentals page](https://www.remotion.dev/docs/the-fundamentals).
+
+## Where to get a transcript (SRT file)? [Recommendations from the Original Author]
 
 There are a few places:
 
@@ -34,45 +72,3 @@ There are a few places:
 - And open-source solutions available, like [Subs AI](https://github.com/abdeladim-s/subsai)
 
 For the purposes of this repo, make sure to export subtitles that are segmented by word (rather than sentence).
-
-## Commands
-
-**Install Dependencies**
-
-```console
-npm install
-```
-
-**Start Preview**
-
-```console
-npm run dev
-```
-
-**Render video**
-
-```console
-npx remotion render
-```
-
-**Upgrade Remotion**
-
-```console
-npx remotion upgrade
-```
-
-## Docs
-
-Get started with Remotion by reading the [fundamentals page](https://www.remotion.dev/docs/the-fundamentals).
-
-## Help
-
-We provide help [on our Discord server](https://discord.gg/6VzzNDwUwV).
-
-## Issues
-
-Found an issue with Remotion? [File an issue here](https://github.com/remotion-dev/remotion/issues/new).
-
-## License
-
-Note that for some entities a company license is needed. Read [the terms here](https://github.com/remotion-dev/remotion/blob/main/LICENSE.md).
